@@ -1,0 +1,65 @@
+Tractable: Problems that can be solved in polynomial time
+Intractable: Problems that cannot be solved in polynomial time
+
+Decision problem: the solution to the problem can be either yes or no
+
+NP: nondeterministic polynomial type problems
+If we can verify a solution of a problem in polynomial time, then the problem is NP
+or we can solve the problem in non-deterministic algorithm in polynomial time.
+
+P问题：可以在多项式时间内被解决的问题
+如果我们可以在多项式时间内解决他，那一定可以在多项式时间内验证他
+NP问题：可以在多项式时间内被验证的问题，或者说在非确定多项式时间被解决的问题。(it can be solved in non-polynomial time)
+可以在非确定 non-deterministic 图灵机上在多项式时间内找出解的问题，可以在多项式时间内被验证，但不确定多项式时间内找到解
+
+Example: CNF- boolean satisfiability problem is NP problem and it is NP Complete problem
+f(x, y, z) = (x or y or !z) and (!x or y or !z) and (x or !y or z) = 1/true
+list x, y, z = {0, 0, 0}, {0, 0, 1}.....{1, 1, 1}
+we check one certificate that is the result can be done in polynomial time
+Number of possible certificate is 2^3, if we are gonna check one by one, it will take us exponential time
+There are no deterministic algorithm which can solve this problem in polynomial time.
+
+P: p is the class of decision problems that can be solved in polynomial time by deterministic algorithm
+P problems can be solved by deterministic algorithm(确定性的算法) in polynomial time
+P belongs to NP
+
+NP Complete definition:
+A decision problem D is said to be NP-Complete if:
+it belongs to class NP
+every problem in NP is polynomial reducible to D
+
+polynomially reducible:
+A decision problem D1 is said to be polynomial reducible to a decision problem D2, if there exists a function
+t that transforms instances of D1 to instances of D2 such that
+t maps all yes instance of D1 to yes instances D2 and all no instances of D1 to no instances to D2
+t is computable by a polynomial time algorithm
+
+NP complete problems: a problem belongs to NPC:
+First, problem belong to NP. (we just need to have some dummy solution, we check the solution is correct or no)
+Second, every problem in NP is reducible to this particular problem.
+Example: if we can reduce this boolean satisfiability problem to a new problem, new problem also belongs
+to NP complete. This reduction should be done in polynomial time
+
+NP hard problem:
+when we know a NP complete problem L'. if we can classify L' to be L, then L is NP-Hard
+已经有一个很难的问题L' 是NPC， L问题比L'更难，那么这问题就是NP-hard。NP-hard 问题不确定是否可以在多项式时间内被验证
+
+NP-complete:
+如果一个问题已经被证明了是NP-hard，并且可以证明该问题是一个NP问题，那么该问题是NPC问题
+已经NPC问题L'，如果我们可以把L' 归约为L，且L可以在多项式时间内被验证，那么L是一个NPC问题。
+
+归约是指：若A归约到B，B很容易解决，A则很容易解决。
+
+A problem is said to be NP-hard if everything in NP can be transformed in polynomial time into
+it even though it may not be in NP. Conversely, a problem is NP-complete if it is both in NP and NP-hard.
+The NP-complete problems represent the hardest problems in NP.
+
+NP hard and NP Complete:
+若所有NP问题都能多项式时间内归约到问题X，X复杂度大于原NP问题，那么X就是一个NP-hard问题，如果X也是NP的，称X是NP complete，
+否则X就只能是NP-hard. NP hard不需要是NP问题
+NP hard是包括 NP 完全问题，NP完全问题是NP问题中最复杂的那类问题
+只要我们假设NP完全问题能够在多项式时间内解决的话，那么所有的NP问题都能够在多项式时间内解决
+
+NP完全问题 是所有问题中最难的，因为我们归类中就把问题归类为X，X自然比原来那些问题更难。
+如果解决最难的X，如果能找到一个多项式解法，那么原来那些问题自然就解决了
+如果能有多项式时间解法解决NP完全问题，那么P = NP

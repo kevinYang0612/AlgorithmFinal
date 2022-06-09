@@ -1,0 +1,79 @@
+Dijkstra's algorithm:
+O(V log V + E log V) => O(E log V)
+DeleteMin operation O(V log V)
+
+Kruskal's algorithm:
+O(E log E) + O(V) + O(E log V) + O(V) = O(E log E)
+Sorting of edges takes O(ELogE) time
+Per 1 op: the find and union operations can take at most O(Log V) time.
+Total E Log V
+So overall complexity is O(ELogE + ELogV) time. The value of E can be at most O(V^2),
+so O(LogV) is O(LogE) the same. Therefore, the overall time complexity is O(ElogE) or O(ElogV)
+
+Prim's algorithm:
+O(    V   +  V log V  + E log V) => O(E log V)
+makeQueue + deleteMin + decreaseKey
+
+Optimal Binary Search Tree
+Time: O(n^3), space O(n^2)
+
+Fractional Knapsack greedy
+sorting + O(n)
+Time: O(n log n) + O(n)
+
+0-1 knapsack: DP
+Time: O(n * W)
+
+coin change greedy
+O(n log n) + O(amount). worst case will be like 1 coin, 1 penny
+
+coin change DP: O(amount * coin denominations) = O(n * m)
+RobotCollectionCoin: O(m * n)
+
+coin-row: O(n)
+
+StringMatching:
+worst case O(n * m), m is the pattern length, n is the text length
+But for random text is O(n)
+
+Horner's algorithm:
+O(n)
+
+Presorting: O(n log n)
+
+Radix sort:
+Assuming MSB radix sort with constant m bins:
+
+For an arbitrarily large data type which must accommodate at least n distinct values, the number of bits required is N = ceiling(log2(n))
+Thus the amount of memory required to store each value is also O(log n); assuming sequential memory access, the time complexity of reading / writing a value is O(N) = O(log n), although can use pointers instead
+The number of digits is O(N / m) = O(log n)
+Importantly, each consecutive digit must differ by a power-of-2, i.e. m must also be a power-of-2; assume this to be small enough for the HW platform, e.g. 4-bit digits = 16 bins
+During sorting:
+
+For each radix pass, of which there are O(log n):
+
+Count each bucket: get the value of the current digit using bit operations - O(1) for all n values. Should note that each counter must also be N bits, although increments by 1 will be (amortized) O(1). If we had used non-power-of-2 digits, this would in general be O(log n log log n) ( source )
+Make the bucket count array cumulative: must perform m - 1 additions, each of which is O(N) = O(log n) (unlike the increment special case)
+
+Write the output array: loop through n values, determine the bin again, and write the pointer with the correct offset
+
+Thus the total complexity is O(log n) * [ n * O(1) + m * O(log n) + n * O(1) ] = O(n log n).
+The time complexity of radix sort is given by the formula,T(n) = O(d*(n+b)),
+where d is the number of digits in the given list, n is the number of elements in the list,
+and b is the base or bucket size used, which is normally base 10 for decimal representation.
+
+Matrix multiplication:
+O(n ^ 2.8707)
+Large number multiplication:
+O(n ^ 1.585)
+
+QuickSelect:            QuickSort:              Merge Sort:                 Selection:          insertion
+Average O(n)            O(1.39 n log n)         Everything is O(n log n)    Everything is       O(n ^ 2)
+Best: O(n)              O(n log n)              same with space.            O(n ^ 2)            O(n)
+Worst: O(n ^ 2)         O(n ^ 2)                                            in place stable     O(n ^ 2)
+                        in place not stable     not in place stable     in place stable         stable inPlace
+
+Bubble sort: stable in place
+Average O(n ^ 2)
+best O(n)
+worst O(n ^ 2)

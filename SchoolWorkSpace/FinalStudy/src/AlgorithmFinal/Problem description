@@ -1,0 +1,68 @@
+NP problem and NP complete:
+有一些原问题归约到这三个问题的
+逻辑电路问题：CNF satisfiability problem
+Example: CNF- boolean satisfiability problem is NP problem and it is NP Complete problem
+f(x, y, z) = (x or y or !z) and (!x or y or !z) and (x or !y or z) = 1/true
+list x, y, z = {0, 0, 0}, {0, 0, 1}.....{1, 1, 1}
+Hamiltonian circuit problem：
+A path that starts and ends at the same vertex and passes through all the other vertices exactly once
+
+Traveling salesman problem:
+Find the shortest tour through n cities with known positive integer distances between them
+
+Euler Tour problem:
+Given the graph in the image, is it possible to construct a path or cycle starts and ends at the same vertex
+that visits each edge exactly once?
+
+Graph Coloring problem:
+What is the smallest number of colors needed to color the node of a given graph,
+such that adjacent nodes have different color?
+Or, Can we color a given graph with <= m color?
+
+Bubble sort:
+Compare the adjacent elements, if first element is bigger than second element, swap them
+Move down to the array until the last adjacent elements, the largest element should move to the last position
+Repeat again
+
+Selection Sort:
+Going down the array by marking down the smallest element, if there is a smaller one, remark the smallest
+Select the smallest in the array, swap with first element
+then select the second smallest in the array, swap with the second element
+repeat
+
+Insertion Sort:
+A[0] <= A[1] <= ...A[j] < A[j + 1] <= ...<= A[i - 1] | A[i] ...A[n - 1]
+Move A[i] up to between A[j] and A[j + 1], not direct swap, shift one by one up
+Going down the array to check if the any number is out of non-increasing order, if do, move up the element by
+comparing the element in front of it, until the front element is not larger than this one
+repeat to the end.
+
+Merger Sort:
+divide the array recursively in half until the array has one element
+start merging the elements based on comparison of the size of elements
+compare the element of each list and then combine them into another list in a sorted manner.
+
+Quick Sort:
+Pick an element as pivot, median of 3, first, last element, or random
+partition the array: the elements that smaller than pivot, pivot, and the elements that greater than pivot
+repeat the process until left index >= right index
+
+Quick Select:
+Pick an element as pivot, median of 3, first, last element, or random
+check the pivot with target, if target is greater than pivot, partition the right subarray
+if target is smaller than pivot, partition the left subarray
+repeat until found
+
+Radix sort:
+Taking the last digit and put them into respected index position, if there is a more than 1 at index position, use queue
+them back to the original from iterating 0 - 9 positions.
+Move to the second last digit and repeat, put back to original
+
+
+
+
+
+
+
+
+
